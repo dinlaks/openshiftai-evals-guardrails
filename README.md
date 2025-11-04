@@ -242,13 +242,13 @@ curl -X POST "https://prompt-injection-models.apps.your-cluster.com/v1/predict" 
 export GUARDRAILS_GATEWAY=https://guardrails-orchestrator-gateway-models.apps.your-cluster.com
 
 ```bash
-# Test with guardrails filtering based on prompt injection
-curl -X POST "https://guardrails-gateway-models.apps.your-cluster.com/v1/chat/completions" \
+# Test with guardrails filtering based on prompt injection and regex
+curl -k -X POST "$GUARDRAILS_GATEWAY/all/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "llama-32-3b-instruct",
     "messages": [{"role": "user", "content": "Tell me about apples"}]
-  }'
+  }'| jq
 ```
 
 ```bash
