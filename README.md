@@ -206,6 +206,7 @@ oc get route prompt-injection -n models
 ```bash
 
 export CLUSTER_DOMAIN=<add your cluster domain here>
+
 # Test Llama model directly
 curl -X POST "https://llama-32-3b-instruct-models.apps.$CLUSTER_DOMAIN/v1/chat/completions" \
   -H "Content-Type: application/json" \
